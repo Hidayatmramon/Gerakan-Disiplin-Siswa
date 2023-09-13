@@ -98,13 +98,17 @@ if (isset($_POST["submit"])) {
                         <br>
                     </div>
                     <div class="mb-3">
-                        <label for="keterangan">Keterangan</label>
-                        <input type="text" class="form-control" name="keterangan" id="keterangan" required value="<?= $siswas["keterangan"]; ?>">
-                        <br>
+                        <select class="form-select form-select-sm mb-3" aria-label="Small select example" name="keterangan" id="keterangan">
+                            <label for="" class="form-select form-select-sm mb-3">Keterangan :</label>
+                            <!-- <option selected>Keterangan</option> -->
+                            <option value="Telat">Telat </option>
+                            <option value="Tidak Memakai NameTag">Tidak Memakai NameTag</option>
+                            <option value="etc.">etc.</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="date">Date :</label>
-                        <input type="text" class="form-control" name="date" id="date" required value="<?= $siswas["date"]; ?>">
+                        <input type="date" class="form-control" name="date" id="date" required value="<?= $siswas["date"]; ?>">
                         <br>
                     </div>
 

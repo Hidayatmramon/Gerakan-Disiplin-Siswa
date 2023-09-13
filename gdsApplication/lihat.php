@@ -2,7 +2,7 @@
 
 require 'controler.php';
 $id = $_GET["id"];
-$student = query("SELECT * FROM siswas WHERE id = $id")[0];
+$siswas = query("SELECT * FROM siswas WHERE id = $id")[0];
 
 ?>
 
@@ -74,38 +74,38 @@ $student = query("SELECT * FROM siswas WHERE id = $id")[0];
 
 
                 <form action="" method="post">
-                    <input type="hidden" name="id" value="<?= $student["id"]; ?>">
+                    <input type="hidden" name="id" value="<?= $siswas["id"]; ?>">
 
                     <label for="gambar"></label><br>
-                    <li><img src="img/<?= $student["gambar"]; ?>"></li>
+                    <li><img src="img/<?= $siswas["gambar"]; ?>"></li>
 
 
                     <label for="nama"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["nama"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["nama"]; ?></li>
 
                     <label for="nis"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["nis"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["nis"]; ?></li>
 
                     <label for="rombel"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["rombel"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["rombel"]; ?></li>
 
                     <label for="rayon"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["rayon"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["rayon"]; ?></li>
 
                     <label for="status"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["status"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["status"]; ?></li>
 
                     <label for="hobi"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["hobi"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["hobi"]; ?></li>
 
                     <label for="alamat"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["alamat"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["alamat"]; ?></li>
 
                     <label for="cita_cita"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["cita_cita"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["cita_cita"]; ?></li>
 
                     <label for="merk_laptop"></label>
-                    <li class="list-group-item list-group-item-dark"><?= $student["merk_laptop"]; ?></li>
+                    <li class="list-group-item list-group-item-dark"><?= $siswas["merk_laptop"]; ?></li>
                     <br>
 
 
