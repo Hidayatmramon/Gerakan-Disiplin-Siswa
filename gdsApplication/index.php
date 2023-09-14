@@ -1,8 +1,17 @@
 <?php
 
 
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+
 require 'controler.php';
 $siswas = query("SELECT * FROM siswas");
+
 
 
 ?>
@@ -108,7 +117,7 @@ $siswas = query("SELECT * FROM siswas");
                             <th>Rombel</th>
                             <th>Rayon </th>
                             <th>Keterangan</th>
-                            <th>Tangga;</th>
+                            <th>Tanggal;</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -119,8 +128,8 @@ $siswas = query("SELECT * FROM siswas");
                                 <td><?= $i; ?></td>
                                 <td><?= $siswa["nama"] ?></td>
                                 <td><?= $siswa["nis"] ?></td>
-                                <td><?= $siswa["rombel"] ?></td>
                                 <td><?= $siswa["rayon"] ?></td>
+                                <td><?= $siswa["rombel"] ?></td>
                                 <td><?= $siswa["keterangan"] ?></td>
                                 <td><?= $siswa["date"] ?></td>
 
@@ -128,7 +137,6 @@ $siswas = query("SELECT * FROM siswas");
                                     <div class="btns">
                                         <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="ubah.php?id=<?= $siswa["id"]; ?>">Edit Data </a> </button>
                                         <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="hapus.php?id=<?= $siswa["id"]; ?>" onclick="return confirm ('yakin?')">Hapus Data</a></button>
-                                        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="lihat.php?id=<?= $siswa["id"]; ?>">Tampil Data</a></button>
                                     </div>
 
 

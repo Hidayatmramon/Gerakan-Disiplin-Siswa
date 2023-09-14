@@ -77,22 +77,29 @@ if (isset($_POST["submit"])) {
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Rombel:</label>
+                        <label for="" class="form-label">Rayon:</label>
                         <input type="text" class="form-control" name="rombel" id="rombel">
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Rayon :</label>
+                        <label for="" class="form-label">Rombel :</label>
                         <input type="text" class="form-control" name="rayon" id="rayon">
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Keterangan :</label>
-                        <input type="text" class="form-control" name="keterangan" id="keterangan">
+                        <select class="form-select form-select-sm mb-3" aria-label="Small select example" name="keterangan" id="keterangan">
+                            <label for="" class="form-select form-select-sm mb-3">Keterangan :</label>
+                            <!-- <option selected>Keterangan</option> -->
+                            <option value="Telat">Telat </option>
+                            <option value="Tidak Memakai NameTag">Tidak Memakai NameTag</option>
+                            <option value="etc.">etc.</option>
+                        </select>
                     </div>
+
+
                     <div class="mb-3">
                         <label for="" class="form-label">Date:</label>
-                        <input type="text" class="form-control" name="date" id="date">
+                        <input type="date" class="form-control" name="date" id="date">
                     </div>
 
 

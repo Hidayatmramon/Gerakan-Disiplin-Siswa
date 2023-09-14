@@ -1,59 +1,31 @@
 <?php
 session_start();
-
-require 'controler.php';
-
-// cek cookie
-if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-    $id = $_COOKIE['id'];
-    $key = $_COOKIE['key'];
-
-    // ambi; username berdasarkan id
-    $result = mysqli_query($conn, " SELECT username FROM users WHERE id = $id");
-    $row = mysqli_fetch_assoc($result);
-
-    // cek cookie dan username
-    if ($key === hash('sha256', $row['username'])) {
-        $_SESSION['login'] = true;
-    }
-}
-
 if (isset($_SESSION["login"])) {
-    header("Location:index.php");
+    header("Location: index.php");
     exit;
 }
-
-
+require 'controler.php';
 
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $result = mysqli_query($conn, "SELECT * FROM users WHERE 
-    username = '$username' ");
+    // $result = mysqli_query($conn, "SELECT * FROM users WHERE username = 'username'");
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-    // cek username
     if (mysqli_num_rows($result) === 1) {
-        // cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
 
-            // cek remember me
-            if (isset($_POST['remember'])) {
-                // buat cookie
+            $_SESSION["login"] = true;
 
-                setcookie('id', $row['id'], time() + 60);
-                setcookie('key', hash('sha256', $row['username']), time() + 60);
-            }
-
-            header("Location:index.php");
+            header("Location: index.php");
             exit;
         }
     }
 
     $error = true;
 }
-
 
 
 
@@ -149,7 +121,7 @@ if (isset($_POST["login"])) {
 
     <section class="hero">
         <div class="content">
-            <h1>Daftar Siswa Pengembangan Perangkat Lunak dan Gim X<span></span></h1>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, a! Fugiat doloribus dolorum laboriosam reiciendis sed perspiciatis quam, officia earum.<span></span></h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure libero neque vero similique consequatur nemo perspiciatis? Odit non ratione fuga dolor amet officia. Libero pariatur tenetur ducimus magni? Maxime, possimus.
             </p>
@@ -185,7 +157,9 @@ if (isset($_POST["login"])) {
                             </div>
                             <br>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="text-white btn bg-secondary bg-gradient" type="button" name="login">Sign in</button>
+                                <!-- <button type="submit" class="text-white btn bg-secondary bg-gradient" type="button" name="login">Sign in</button> -->
+                                <button type="submit" class="text-white btn bg-secondary bg-gradient" name="login">Sign in</button>
+
                                 <p>Belum punya akun? <u><a class="" href="registrasi.php">Sign up</a></u< /p>
                             </div>
 
@@ -196,6 +170,7 @@ if (isset($_POST["login"])) {
             </div>
         </div>
     </section>
+
 
 </body>
 
