@@ -1,35 +1,66 @@
 <?php
 session_start();
+
+// Cek apakah pengguna sudah login, jika ya, arahkan ke halaman index
 if (isset($_SESSION["login"])) {
     header("Location: index.php");
     exit;
 }
+
 require 'controler.php';
 
 if (isset($_POST["login"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // $result = mysqli_query($conn, "SELECT * FROM users WHERE username = 'username'");
+    // Query untuk mendapatkan data pengguna berdasarkan username
     $result = mysqli_query($conn, "SELECT * FROM users WHERE username = '$username'");
 
-    if (mysqli_num_rows($result) === 1) {
-        $row = mysqli_fetch_assoc($result);
-        if (password_verify($password, $row["password"])) {
+    if ($result) {
+        // Periksa apakah ada data pengguna dengan username yang dimasukkan
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            if (password_verify($password, $row["password"])) {
 
-            $_SESSION["login"] = true;
+                // Setel sesi untuk menyimpan peran dan rayon pengguna
+                $_SESSION["username"] = $row['nama'];
+                $_SESSION["login"] = true; // Anda bisa gunakan ini untuk menandai bahwa pengguna sudah login
+                $_SESSION["role"] = $row["role"];
+                $_SESSION["rayon"] = $row["rayon"];
 
-            header("Location: index.php");
-            exit;
+                // Tentukan halaman yang akan diarahkan berdasarkan peran
+                if ($row["role"] === "admin") {
+                    // Pengguna adalah admin, arahkan ke halaman admin
+                    header("Location: index.php");
+                    exit;
+                } else if ($row["role"] === "user") {
+                    // Pengguna adalah user, arahkan ke halaman user
+                    header("Location: user.php");
+                    exit;
+                }
+                // cek remember me
+                if (isset($_POST['remember'])) {
+                    // buat cookie
+
+                    setcookie('id', $row['id'], time() + 60);
+                    setcookie(
+                        'key',
+                        hash('sha256', $row['username']),
+                        time() + 60
+                    );
+                }
+            }
         }
+    } else {
+        // Handle error database jika query tidak berhasil
+        die("Error: " . mysqli_error($conn));
     }
 
+    // Jika username atau password tidak sesuai, tandai error
     $error = true;
 }
-
-
-
 ?>
+
 
 
 

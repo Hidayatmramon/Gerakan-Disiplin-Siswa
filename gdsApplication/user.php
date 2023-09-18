@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
 if (!isset($_SESSION["login"])) {
@@ -9,15 +7,12 @@ if (!isset($_SESSION["login"])) {
 }
 
 require 'controler.php';
-$siswas = query("SELECT * FROM siswas  ORDER BY date DESC");
 
-// Tombol cari di klik
-if (isset($_POST["cari"])) {
-    $keyword = $_POST["keyword"];
-    $siswas = cari($keyword);
-} else {
-    $siswas = query("SELECT * FROM siswas  ORDER BY date DESC");
-}
+// Ambil rayon dari pengguna yang sedang login
+$rayon_pengguna = $_SESSION["rayon"];
+
+// Query untuk mendapatkan data siswa berdasarkan rayon pengguna
+$siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY date DESC");
 
 
 ?>
@@ -100,21 +95,11 @@ if (isset($_POST["cari"])) {
         <div class="card">
             <div class="card-body">
                 <br>
+                <br>
                 <h1>Selamat Datang, <span><?= $_SESSION['username'] ?></span></h1>
                 <br>
-                <form action="" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" name="keyword" class="form-control " placeholder="Cari Data" aria-label="Cari Data" aria-describedby="basic-addon2" autocomplete="off">
-                        <span class="input-group-text" id="basic-addon2">
-                            <button type="submit" name="cari" class="text-white btn bg-secondary bg-gradient">Cari</button>
-                        </span>
-                    </div>
-                </form>
 
-                <br>
-                <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="tambah.php">Tambah data siswa</a></button>
-                <br></br>
-                <br>
+
                 <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-dark">
                     <thead>
                         <tr>
@@ -136,16 +121,6 @@ if (isset($_POST["cari"])) {
                                 <td><?= $siswa["rombel"] ?></td>
                                 <td><?= $siswa["keterangan"] ?></td>
                                 <td><?= $siswa["date"] ?></td>
-
-
-                                <td>
-                                    <div class="btns">
-                                        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="ubah.php?id=<?= $siswa["id"]; ?>">Edit Data </a> </button>
-                                        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="hapus.php?id=<?= $siswa["id"]; ?>" onclick="return confirm ('yakin?')">Hapus Data</a></button>
-                                    </div>
-
-
-                                </td>
                             </tr>
                         <?php  } ?>
 

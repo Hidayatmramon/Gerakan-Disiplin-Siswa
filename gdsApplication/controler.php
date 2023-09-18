@@ -67,6 +67,18 @@ function ubah($data)
     return mysqli_affected_rows($conn);
 }
 
+function cari($keyword)
+{
+    global $conn;
+    $query = "SELECT * FROM siswas WHERE 
+    nama LIKE '%$keyword%' OR
+    nis LIKE '%$keyword%' OR
+    rombel LIKE '%$keyword%' OR
+    rayon LIKE '%$keyword%' OR
+    date LIKE '%$keyword%' 
+    ";
+    return query($query);
+}
 
 
 function registrasi($data)
@@ -76,6 +88,8 @@ function registrasi($data)
     $username = strtolower(stripslashes($data["username"]));
     $password = mysqli_real_escape_string($conn, $data["password"]);
     $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+    $rayon = mysqli_real_escape_string($conn, $data["rayon"]);
+    $nama = htmlspecialchars($data["nama"]);
 
     // cek username sudah ada atau belum
     $result = mysqli_query($conn, "SELECT username FROM users WHERE 
@@ -83,7 +97,7 @@ function registrasi($data)
     if (mysqli_fetch_assoc($result)) {
         echo " 
         <script>
-        alert('username sudah terpakai'); 
+        alert('Username sudah terpakai'); 
         </script>
         ";
         return false;
@@ -93,7 +107,7 @@ function registrasi($data)
     if ($password !== $password2) {
         echo " 
         <script>
-        alert('konfirmasi password tidak sesuai!'); 
+        alert('Konfirmasi password tidak sesuai!'); 
         </script>
         ";
         return false;
@@ -102,9 +116,12 @@ function registrasi($data)
     // enkripsi password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
+    // Set peran pengguna menjadi 'user'
+    $role = 'user';
 
+    // Simpan pengguna baru ke database dengan peran 'user' dan rayon yang sesuai
+    $query = "INSERT INTO users (username, password, nama, role, rayon) VALUES ('$username', '$password','$nama', '$role', '$rayon')";
+    mysqli_query($conn, $query);
 
-    // tambahkan userbaru ke database
-    mysqli_query($conn, "INSERT INTO users VALUES ('', '$username', '$password')");
     return mysqli_affected_rows($conn);
 }

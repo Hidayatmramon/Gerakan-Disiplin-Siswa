@@ -101,9 +101,12 @@ if (isset($_POST["submit"])) {
                         <select class="form-select form-select-sm mb-3" aria-label="Small select example" name="keterangan" id="keterangan">
                             <label for="" class="form-select form-select-sm mb-3">Keterangan :</label>
                             <!-- <option selected>Keterangan</option> -->
-                            <option value="Telat">Telat </option>
                             <option value="Tidak Memakai NameTag">Tidak Memakai NameTag</option>
-                            <option value="etc.">etc.</option>
+                            <option value="Kaos Kaki Tidak Sesuai">Kaos Kaki Tidak Sesuai</option>
+                            <option value="Tidak Mengenakan Sabuk">Tidak Mengenakan Sabuk</option>
+                            <option value="Telat Hadir">Telat Hadir </option>
+                            <option value="Bet Sekolah Tidak Menyesuaikan Aturan">Bet Sekolah Tidak Menyesuaikan Aturan</option>
+                            <option value="BEtc.">Etc.</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -116,7 +119,7 @@ if (isset($_POST["submit"])) {
 
                     <br>
                     <br>
-                    <button type="submit" name="submit" class="text-white btn bg-secondary  bg-gradient">Updet</button>
+                    <button type="submit" name="submit" class="text-white btn bg-secondary  bg-gradient">Update</button>
 
 
                 </form>

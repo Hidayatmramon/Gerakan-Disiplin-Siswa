@@ -77,8 +77,21 @@ if (isset($_POST["submit"])) {
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Rayon:</label>
-                        <input type="text" class="form-control" name="rombel" id="rombel">
+                        <label for="rayon" class="form-label">Rayon</label>
+                        <select class="form-select" name="rombel" id="rombel" required>
+                            <option value="Cisarua 1">Cisarua 1</option>
+                            <option value="Cisarua 2">Cisarua 2</option>
+                            <option value="Cisarua 3">Cisarua 3</option>
+                            <option value="Cisarua 4">Cisarua 4</option>
+                            <option value="Cisarua 5">Cisarua 5</option>
+                            <option value="Cisarua 6">Cisarua 6</option>
+                            <option value="Cisarua 7">Cisarua 7</option>
+                            <option value="Wikrama 1">Wikrama 1</option>
+                            <option value="Wikrama 2">Wikrama 2</option>
+                            <option value="Wikrama 3">Wikrama 3</option>
+                            <option value="Wikrama 4">Wikrama 4</option>
+                            <option value="Wikrama 5">Wikrama 5</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
@@ -92,7 +105,11 @@ if (isset($_POST["submit"])) {
                             <!-- <option selected>Keterangan</option> -->
                             <option value="Telat">Telat </option>
                             <option value="Tidak Memakai NameTag">Tidak Memakai NameTag</option>
-                            <option value="etc.">etc.</option>
+                            <option value="Kaos Kaki Tidak Sesuai">Kaos Kaki Tidak Sesuai</option>
+                            <option value="Tidak Mengenakan Sabuk">Tidak Mengenakan Sabuk</option>
+                            <option value="Telat Hadir">Telat Hadir </option>
+                            <option value="Bet Sekolah Tidak Menyesuaikan Aturan">Bet Sekolah Tidak Menyesuaikan Aturan</option>
+                            <option value="BEtc.">Etc.</option>
                         </select>
                     </div>
 
