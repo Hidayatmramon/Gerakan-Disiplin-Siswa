@@ -71,7 +71,7 @@ if (isset($_POST["login"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>GDSapp</title>
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -81,7 +81,7 @@ if (isset($_POST["login"])) {
         .hero {
             display: flex;
             align-items: center;
-            background-image: url("img/header_bg.jpg");
+            background-image: url("img/9307771.png");
             margin-bottom: none;
             background-repeat: no-repeat;
             background-size: cover;
@@ -98,72 +98,69 @@ if (isset($_POST["login"])) {
 
         .hero .content h1 {
             font-size: 3.5em;
-            color: #fff;
+            color: #191717;
             text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
             line-height: 1.2;
         }
 
         .hero .content p {
-            color: #fff;
+            color: #191717;
             font-size: 1.6rem;
             margin-top: 1rem;
             line-height: 1.4;
             font-weight: 400;
             text-shadow: 10px 10px 30px rgba(1, 1, 3, 0.5);
             /* mix-blend-mode: difference; */
+        }   
+
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
 
-
-
-        .aa {
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #D80032;
             color: #fff;
-            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #F78CA2;
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        .bt {
+            margin-top: 5px;
         }
 
 
-
-        .card {
-            height: 30rem;
-
-
-        }
-
-        footer {
-            background-color: grey;
-            text-align: center;
-            padding: 1rem 0.3rem;
-            margin-top: 0;
-        }
-
-        footer .credit {
-            font-size: 1rem;
-        }
-
-        footer .credit a {
-            color: var(--bg);
-            font-weight: 700;
-        }
     </style>
 </head>
 
 <body>
 
-
-
-    <section class="hero">
-        <div class="content">
-            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, a! Fugiat doloribus dolorum laboriosam reiciendis sed perspiciatis quam, officia earum.<span></span></h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure libero neque vero similique consequatur nemo perspiciatis? Odit non ratione fuga dolor amet officia. Libero pariatur tenetur ducimus magni? Maxime, possimus.
-            </p>
+        <section class="hero">
+            <div class="content">
+            <h1>Gerakan Disiplin Siswa<span></span></h1>
+            <p>Silahkan Login Dahulu... Lalu Buat Laporan Ke Kesiswaan Tetang Kedisipilan Sekolah</p>
         </div>
         <div class="halaman">
             <div class="container">
-
+                <br>
                 <div class="card" style="width: 35rem;">
                     <div class="card-body">
                         <h1 class="card-title" style="text-align: center;">Login</h1>
-
+                        <br>
                         <?php if (isset($error)) : ?>
                             <p style="color: red; font-style:italic;">username/password salah!</p>
                         <?php endif; ?>
@@ -173,25 +170,18 @@ if (isset($_POST["login"])) {
                         <form action="" method="post">
 
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username :</label>
-                                <input type="text" class="form-control" name="username" id="username">
-                            </div>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                            </div><br>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password :</label>
-                                <input type="password" class="form-control" name="password" id="password">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                             </div>
 
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" name="remember" id="remember">
-                                <label for="remember" class="form-check-label" class="form-label" class="form-control">Remember me </label>
-                            </div>
                             <br>
                             <div class="d-grid gap-2">
-                                <!-- <button type="submit" class="text-white btn bg-secondary bg-gradient" type="button" name="login">Sign in</button> -->
-                                <button type="submit" class="text-white btn bg-secondary bg-gradient" name="login">Sign in</button>
-
-                                <p>Belum punya akun? <u><a class="" href="registrasi.php">Sign up</a></u< /p>
+                                <button type="submit" class="btn" name="login">Sign in</button>
+                        
+                              <p>Untuk Bantuan, Hubungi CS Kami <u><a class="bt" href="https://api.whatsapp.com/send/?phone=6285770537160&text&type=phone_number&app_absent=0">Di Sini!</a></u</p> 
                             </div>
 
                         </form>

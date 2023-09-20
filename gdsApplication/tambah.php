@@ -20,24 +20,20 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tambah Data</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
         html {
             display: flex;
             align-items: center;
-            background-image: url("img/header_bg.jpg");
+            background-image: url("img/6065650.jpg");
             margin-bottom: none;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             position: relative;
-            height: 150vh;
+            height: 100vh;
 
-        }
-
-        img {
-            width: 100px;
         }
 
         .aa {
@@ -46,13 +42,31 @@ if (isset($_POST["submit"])) {
         }
 
         .card {
-            /* padding-top:100px; */
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            width: 1400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
         }
+
+        .btn-bac {
+            margin-top: 10px;
+            margin-left: 328px;
+            display: inline-block;
+            padding: 10px 40px;
+            background-color: #D80032;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-bac:hover {
+            background-color: #F78CA2;
+            transform: scale(1.05);
+        }
+        
     </style>
 
 </head>
@@ -65,20 +79,21 @@ if (isset($_POST["submit"])) {
 
                 <form action="" method="post" enctype="multipart/form-data">
 
-                    <h1>Tambah Data Siswa</h1>
+                    <h1>Tambah Data Siswa</h1><br>
                     <div class="mb-3">
-                        <label for="" class="form-label">Nama :</label>
-                        <input type="text" class="form-control" name="nama" id="nama">
+                        <label for="" class="form-label">Nama</label>
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukan">
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Nis :</label>
-                        <input type="text" class="form-control" name="nis" id="nis">
+                        <label for="" class="form-label">Nis</label>
+                        <input type="text" class="form-control" name="nis" id="nis" placeholder="Masukan">
                     </div>
 
                     <div class="mb-3">
                         <label for="rayon" class="form-label">Rayon</label>
                         <select class="form-select" name="rombel" id="rombel" required>
+                            <option value="">...</option>
                             <option value="Cisarua 1">Cisarua 1</option>
                             <option value="Cisarua 2">Cisarua 2</option>
                             <option value="Cisarua 3">Cisarua 3</option>
@@ -95,14 +110,14 @@ if (isset($_POST["submit"])) {
                     </div>
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Rombel :</label>
-                        <input type="text" class="form-control" name="rayon" id="rayon">
+                        <label for="" class="form-label">Rombel</label>
+                        <input type="text" class="form-control" name="rayon" id="rayon" placeholder="Masukan">
                     </div>
 
                     <div class="mb-3">
+                        <label for="keterangan" class="from-label">Keterangan</label>
                         <select class="form-select form-select-sm mb-3" aria-label="Small select example" name="keterangan" id="keterangan">
-                            <label for="" class="form-select form-select-sm mb-3">Keterangan :</label>
-                            <!-- <option selected>Keterangan</option> -->
+                            <option value="">...</option>
                             <option value="Telat">Telat </option>
                             <option value="Tidak Memakai NameTag">Tidak Memakai NameTag</option>
                             <option value="Kaos Kaki Tidak Sesuai">Kaos Kaki Tidak Sesuai</option>
@@ -115,14 +130,14 @@ if (isset($_POST["submit"])) {
 
 
                     <div class="mb-3">
-                        <label for="" class="form-label">Date:</label>
+                        <label for="" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" name="date" id="date">
-                    </div>
+                    </div><br><br>
 
 
 
 
-                    <button type="submit" name="submit" class="text-white btn bg-secondary bg-gradient">Kirim</button>
+                    <button type="submit" name="submit" class="btn-bac">Kirim</button>
                 </form>
             </div>
         </div>

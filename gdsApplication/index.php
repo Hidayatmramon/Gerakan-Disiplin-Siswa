@@ -29,13 +29,13 @@ if (isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Siswa </title>
+    <title>Daftar Siswa</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
         html {
             display: flex;
             align-items: center;
-            background-image: url("img/header_bg.jpg");
+            background-image: url("img/6065650.jpg");
             margin-bottom: none;
             background-repeat: no-repeat;
             background-size: cover;
@@ -55,11 +55,10 @@ if (isset($_POST["cari"])) {
         }
 
         .card {
-            /* padding-top:100px; */
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            width: 1400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         span {
@@ -79,41 +78,84 @@ if (isset($_POST["cari"])) {
 
         th {
             text-align: center;
-            font-size: 20px;
+            font-size: 30px;
         }
 
-        .btns {
-            margin-left: 40px;
+        .btn {
+            margin-left: 10px;
+            font-size: 30px;
+            background-color: #713ABE;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        .btn:hover {
+            background-color: #9D76C1;
+            transform: scale(1.05);
+            color: #fff;
+        }
+
+        .btn-data {
+            font-size: 20px;
+            background-color: #3085C3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-data:hover {
+            background-color: #5CD2E6;
+            transform: scale(1.05);
         }
 
         td {
             font-size: 20px;
         }
+        
+        .btn-logout{
+            padding: 8px 20px;
+            margin-left: 1278px;
+            font-size: 22px;
+            margin-bottom: 12px;
+            margin-top: 40px;
+            background-color: #D80032;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-logout:hover {
+            background-color: #F78CA2;
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 
 <body>
     <div class="position-absolute top-50 start-50 translate-middle">
-        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="logout.php">Logout</a></button>
-        <br>
         <br>
         <div class="card">
             <div class="card-body">
                 <br>
-                <h1>Selamat Datang, <span><?= $_SESSION['username'] ?></span></h1>
+                <h1>Selamat Datang! <span><?= $_SESSION['username'] ?></span></h1>
                 <br>
                 <form action="" method="post">
                     <div class="input-group mb-3">
                         <input type="text" name="keyword" class="form-control " placeholder="Cari Data" aria-label="Cari Data" aria-describedby="basic-addon2" autocomplete="off">
-                        <span class="input-group-text" id="basic-addon2">
-                            <button type="submit" name="cari" class="text-white btn bg-secondary bg-gradient">Cari</button>
+                        <span id="basic-addon2">
+                            <button type="submit" name="cari" class="btn">Cari</button>
                         </span>
                     </div>
                 </form>
 
                 <br>
-                <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="tambah.php">Tambah data siswa</a></button>
-                <br></br>
+                <button type="button" class="btn" style="font-size: 25px;"><a class="aa" href="tambah.php">Tambah data siswa</a></button>
+                <br>
                 <br>
                 <table border="1" cellpadding="10" cellspacing="0" class="table table-bordered border-dark">
                     <thead>
@@ -140,8 +182,8 @@ if (isset($_POST["cari"])) {
 
                                 <td>
                                     <div class="btns">
-                                        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="ubah.php?id=<?= $siswa["id"]; ?>">Edit Data </a> </button>
-                                        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="hapus.php?id=<?= $siswa["id"]; ?>" onclick="return confirm ('yakin?')">Hapus Data</a></button>
+                                        <button type="button" class="btn-data"><a class="aa" href="ubah.php?id=<?= $siswa["id"]; ?>">Edit Data </a> </button>
+                                        <button type="button" class="btn-data"><a class="aa" href="hapus.php?id=<?= $siswa["id"]; ?>" onclick="return confirm ('yakin?')">Hapus Data</a></button>
                                     </div>
 
 
@@ -152,8 +194,9 @@ if (isset($_POST["cari"])) {
 
                     </tbody>
                 </table>
+                <button type="button" class="btn-logout"><a class="aa" href="logout.php">Logout</a></button>
             </div>
         </div>
-</body>
+    </body>
 
 </html>

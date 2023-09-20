@@ -30,7 +30,7 @@ $siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY d
         html {
             display: flex;
             align-items: center;
-            background-image: url("img/header_bg.jpg");
+            background-image: url("img/6065650.jpg");
             margin-bottom: none;
             background-repeat: no-repeat;
             background-size: cover;
@@ -50,11 +50,10 @@ $siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY d
         }
 
         .card {
-            /* padding-top:100px; */
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            width: 1400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         span {
@@ -74,29 +73,43 @@ $siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY d
 
         th {
             text-align: center;
-            font-size: 20px;
+            font-size: 30px;
         }
-
-        .btns {
-            margin-left: 40px;
-        }
-
+        
         td {
             font-size: 20px;
+            text-align: center;
         }
+
+        .btn-logout{
+            padding: 8px 20px;
+            margin-left: 1278px;
+            font-size: 22px;
+            margin-bottom: 0px;
+            margin-top: 40px;
+            background-color: #D80032;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn-logout:hover {
+            background-color: #F78CA2;
+            transform: scale(1.05);
+        }
+
+
     </style>
 </head>
 
 <body>
     <div class="position-absolute top-50 start-50 translate-middle">
-        <button type="button" class="text-white btn bg-secondary bg-gradient"><a class="aa" href="logout.php">Logout</a></button>
         <br>
         <br>
         <div class="card">
             <div class="card-body">
                 <br>
                 <br>
-                <h1>Selamat Datang, <span><?= $_SESSION['username'] ?></span></h1>
+                <h1>Selamat Datang! <span><?= $_SESSION['username'] ?></span></h1>
                 <br>
 
 
@@ -108,11 +121,11 @@ $siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY d
                             <th>Rayon </th>
                             <th>Rombel</th>
                             <th>Keterangan</th>
-                            <th>Tanggal;</th>
+                            <th>Tanggal</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        
                         <?php foreach ($siswas as $siswa) { ?>
                             <tr>
                                 <td><?= $siswa["nama"] ?></td>
@@ -127,6 +140,7 @@ $siswas = query("SELECT * FROM siswas WHERE rayon = '$rayon_pengguna' ORDER BY d
 
                     </tbody>
                 </table>
+                    <button type="button" class="btn-logout"><a class="aa" href="logout.php">Logout</a></button>
             </div>
         </div>
 </body>
